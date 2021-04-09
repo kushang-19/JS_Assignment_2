@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment 2</title>
+</head>
+<body>
+    
+    <h2> JavaScript Assignment 2 </h2>
+    
+<script>
+
+//  1.Write a function to sort the following array of objects by title value.
+
+var library = [ 
+   { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+   { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+   { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+   ];
+
+   function compare( a, b ) {
+  if ( a.title < b.title ){
+    return -1;
+  }
+  if ( a.title > b.title ){
+    return 1;
+  }
+  return 0;
+}
+
+console.log("1.",library.sort(compare));
+
+console.log("");
+// 2.Write a function to filter false, null, 0  values from an array
+
+var myArray=[0,10,null,"maths","red",false,0,"joe","car",50]
+
+var myArrFilter = myArray.filter(function(value){
+    if(value !== false || value !== null || value !== 0){
+        return value;
+    }
+})
+
+console.log("2. The Filtered Array is ",myArrFilter);
+
+console.log("");
+// 3.Write a  program to delete the rollno property from the following object. Also print the object before or after deleting the property. 
+
+var student = {
+name : "Sunny Rayy",
+sclass : "VII",
+rollno : 12 };
+
+console.log("3. Object BEFORE deleting rollno property ",student)
+
+var st2 = {...student}
+
+delete st2.rollno
+console.log("   Object AFTER deleting rollno property ",st2 )
+
+
+console.log("");
+// 4.Write a JavaScript program to categorize properties (i.e. display book name, author name and reading status)  
+
+var library = [ 
+   {
+       author: 'Bill Gates',
+       title: 'The Road Ahead',
+       readingStatus: true
+   },
+   {
+       author: 'Steve Jobs',
+       title: 'Walter Isaacson',
+       readingStatus: true
+   },
+   {
+       author: 'Suzanne Collins',
+       title:  'Mockingjay: The Final Book of The Hunger Games', 
+       readingStatus: false
+   }];
+
+console.log("4. Check if books are read or pendding")
+
+   for(var i = 0; i < library.length; i++){
+
+    var book = "'"+library[i].title + " by " + library[i].author+"'";
+
+    if (library[i].readingStatus){
+        console.log("Completed",book);
+    }
+
+    else{
+        console.log("Yet to read",book);
+    }
+
+   }
+
+console.log("");
+// 5.Create the constructor function for a Video object. The function should take in arguments of title (a string), uploader (a string, the person who uploaded it), and seconds (a number, the duration), and it should save them as properties of the object.
+
+function VideoObject(title,uploader,seconds){
+    this.title = title;
+    this.uploader = uploader;
+    this.seconds = seconds;
+    this.watch = function (){
+        return "You watched all 60 seconds of Workout Videos!"
+    }
+}
+
+var VideoObject2 = new VideoObject("Workout Videos","Kushang Gharat",60);
+console.log("5a. ",VideoObject2);
+
+// Create a method on the Video object called watch(). When that method is called, it should use console.log to output a string like "You watched all 60 seconds of Harry Potter!"
+
+console.log("5b. ",VideoObject2.watch())
+
+console.log("");
+// 6.take any 2 numbers as parameters and return addition of those 2 numbers(**use arrow function)
+
+var addTwoNos = (a,b) => {return a + b;}
+
+var resultAdd = addTwoNos(10,20);
+console.log("6. The Addition of our two number is: " + resultAdd);
+
+</script>
+</body>
+</html>
